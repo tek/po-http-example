@@ -1,0 +1,64 @@
+cabal-version: 2.2
+
+-- This file has been generated from package.yaml by hpack version 0.35.2.
+--
+-- see: https://github.com/sol/hpack
+
+name:           po-http-example
+version:        0.1.0.0
+synopsis:       A Haskell project
+description:    See https://hackage.haskell.org/package/po-http-example/docs/Po-Http-Example.html
+author:         Author
+maintainer:     Author
+copyright:      2023 Author
+license:        BSD-2-Clause-Patent
+license-file:   LICENSE
+build-type:     Simple
+
+library
+  exposed-modules:
+      PoHttpExample
+  other-modules:
+      Paths_po_http_example
+  autogen-modules:
+      Paths_po_http_example
+  hs-source-dirs:
+      lib
+  ghc-options: -Wall
+  build-depends:
+      base ==4.*
+    , polysemy-http
+  default-language: Haskell2010
+
+executable po-http-example
+  main-is: Main.hs
+  other-modules:
+      Paths_po_http_example
+  autogen-modules:
+      Paths_po_http_example
+  hs-source-dirs:
+      app
+  ghc-options: -Wall -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base ==4.*
+    , po-http-example
+  default-language: Haskell2010
+
+test-suite po-http-example-test
+  type: exitcode-stdio-1.0
+  main-is: Main.hs
+  other-modules:
+      PoHttpExample.Test.NameTest
+      Paths_po_http_example
+  autogen-modules:
+      Paths_po_http_example
+  hs-source-dirs:
+      test
+  ghc-options: -Wall -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base ==4.*
+    , hedgehog >=1.1 && <1.3
+    , po-http-example
+    , tasty ==1.4.*
+    , tasty-hedgehog >=1.3 && <1.5
+  default-language: Haskell2010
